@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_e5kic"]
 [ext_resource type="Script" uid="uid://dhb8bjagmiq67" path="res://Entities/Player/MousePlayer.gd" id="1_ww0jn"]
+[ext_resource type="PackedScene" uid="uid://bteatyl84d520" path="res://Entities/Player/Weapon/PlayerWeapon.tscn" id="3_vweq0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
 radius = 50.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1752497931]
+[node name="200" type="CharacterBody2D" unique_id=1752497931]
 script = ExtResource("1_ww0jn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063277729]
@@ -14,3 +15,6 @@ texture = ExtResource("1_e5kic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518797429]
 shape = SubResource("CircleShape2D_ww0jn")
+
+[node name="PlayerWeapon" parent="." unique_id=1460599134 instance=ExtResource("3_vweq0")]
+position = Vector2(124, 0)

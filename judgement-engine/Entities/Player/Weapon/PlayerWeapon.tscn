@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bteatyl84d520"]
+
+[node name="PlayerWeapon" type="Node2D" unique_id=1460599134]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=774028129]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.15416896, 0.19023678, 0.20818987, 1)
