@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cuws01826bgf7"]
+
+[ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_sou0s"]
+[ext_resource type="Script" uid="uid://g4vke30akclv" path="res://Entities/Enemies/Base Enemy/enemy.gd" id="1_suyeg"]
+[ext_resource type="Script" uid="uid://dxlkjyqfobsq0" path="res://Entities/State Machine/state_machine.gd" id="2_suyeg"]
+[ext_resource type="Script" uid="uid://bkswugws1t0tm" path="res://Entities/Enemies/Base Enemy/Enemy State Machine/Enemy States/enemy_idle.gd" id="4_5kg3w"]
+[ext_resource type="Script" uid="uid://u22bqgl7kseb" path="res://Entities/Enemies/Base Enemy/Enemy State Machine/Enemy States/enemy_test_follow.gd" id="5_8wq1e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jv363"]
+radius = 22.0
+height = 144.0
+
+[node name="base_enemy" type="CharacterBody2D" unique_id=1742152106]
+script = ExtResource("1_suyeg")
+max_health = 100
+speed = 200
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1058222678]
+texture = ExtResource("1_sou0s")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=488236401]
+position = Vector2(0, 53)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv363")
+
+[node name="state_machine" type="Node" parent="." unique_id=63601073 node_paths=PackedStringArray("entity", "entity_sprite")]
+script = ExtResource("2_suyeg")
+default_state = "idle"
+entity = NodePath("..")
+entity_sprite = NodePath("../sprite")
+
+[node name="idle" type="Node" parent="state_machine" unique_id=937720025]
+script = ExtResource("4_5kg3w")
+decceleration = 12.0
+
+[node name="follow" type="Node" parent="state_machine" unique_id=1633087806]
+script = ExtResource("5_8wq1e")
+acceleration = 12.0
