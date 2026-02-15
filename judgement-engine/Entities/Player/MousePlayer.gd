@@ -54,7 +54,6 @@ func _physics_process(delta: float) -> void:
 		set_state(STATES.IDLE)
 	elif state != STATES.DASHING:
 		set_state(STATES.MOVING)
-	print(state)
 
 func set_state(new_state: STATES) -> void:
 	#var previous_state = state
