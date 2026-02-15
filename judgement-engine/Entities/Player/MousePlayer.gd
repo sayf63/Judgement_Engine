@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 @onready var Weapon = $PlayerWeapon
 
-var dash_is_cooldown := false
+var previous_direction := Vector2.ZERO
 
 const ACTIONS = {
 	Move_Left = "left",
@@ -25,38 +25,16 @@ enum STATES {
 	IDLE,
 	DASHING
 }
-
 var state := STATES.IDLE
 
 var cooldowns: Dictionary = {
 	ACTIONS.Dash: DASH_COOLDOWN
 }
 
-func _is_on_cooldown(action: String) -> bool:
-	return cooldowns[action] != 0
-
-var previous_direction := Vector2.ZERO
 
 func _init() -> void:
 	for key in cooldowns:
 		cooldowns[key] = 0
-
-func set_state(new_state: STATES) -> void:
-	var previous_state = state
-	state = new_state
-	
-	match state:
-		STATES.MOVING:
-			pass
-		STATES.IDLE:
-			pass
-		STATES.DASHING:
-			cooldowns[ACTIONS.Dash] = DASH_COOLDOWN
-			get_tree().create_timer(DASH_DURATION).timeout.connect(
-				func(): state = STATES.MOVING
-			)
-		_:
-			pass
 
 func _physics_process(delta: float) -> void:
 	for key in cooldowns:
@@ -77,6 +55,23 @@ func _physics_process(delta: float) -> void:
 	elif state != STATES.DASHING:
 		set_state(STATES.MOVING)
 	print(state)
+
+func set_state(new_state: STATES) -> void:
+	#var previous_state = state
+	state = new_state
+	
+	match state:
+		STATES.MOVING:
+			pass
+		STATES.IDLE:
+			pass
+		STATES.DASHING:
+			cooldowns[ACTIONS.Dash] = DASH_COOLDOWN
+			get_tree().create_timer(DASH_DURATION).timeout.connect(
+				func(): state = STATES.MOVING
+			)
+		_:
+			pass
 
 func handle_weapon_position(delta: float, mouse_position: Vector2):
 	var weapon_desired_angle := global_position.angle_to_point(mouse_position)
@@ -108,3 +103,6 @@ func handle_mouse_movement(delta, mouse_position: Vector2):
 		move_toward(velocity.x, direction.x * SPEED * target_speed_multiplier * delta*50, SPEED),
 		move_toward(velocity.y, direction.y * SPEED * target_speed_multiplier * delta*50, SPEED)
 	)
+
+func _is_on_cooldown(action: String) -> bool:
+	return cooldowns[action] != 0
