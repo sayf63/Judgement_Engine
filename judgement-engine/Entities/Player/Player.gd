@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var DASH_DURATION := 1.0
 @export var WEAPON_DISTANCE := 100.0
 @export var WEAPON_ROTATION_SPEED := 10.0
-@export var SLOW_RADIUS = 75.0
+@export var SLOW_RADIUS = 50.0
 @export var STOP_RADIUS = 5
 
 @onready var Weapon = $PlayerWeapon
@@ -28,8 +28,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if cooldowns["Dashing"] > DASH_COOLDOWN - DASH_DURATION:
-		print("I'M FUCKING INVICIBLE")
-		print("---------------")
 		pass # invicible
 
 func is_on_cooldown(action: String) -> bool:
