@@ -1,5 +1,5 @@
+class_name Player
 extends CharacterBody2D
-
 
 @export var SPEED := 200.0
 @export var DASH_MULTIPLIER := 2.0
@@ -25,7 +25,12 @@ func _process(delta: float) -> void:
 		cooldowns[key] = max(cooldowns[key] - delta, 0.0)
 	
 	handle_weapon_position(delta, get_global_mouse_position())
-	
+
+func _physics_process(_delta: float) -> void:
+	if cooldowns["Dashing"] > DASH_COOLDOWN - DASH_DURATION:
+		print("I'M FUCKING INVICIBLE")
+		print("---------------")
+		pass # invicible
 
 func is_on_cooldown(action: String) -> bool:
 	return cooldowns[action] > 0

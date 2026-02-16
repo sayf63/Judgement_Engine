@@ -5,12 +5,14 @@ func enter_state():
 	entity.velocity = Vector2.ZERO
 
 ## Called every frame
-func do_process(_delta):
+func do_physics_process(_delta):
 	entity.velocity = Vector2.ZERO
 	if entity.global_position.distance_to(entity.get_global_mouse_position()) > entity.STOP_RADIUS:
-		set_state("Moving")
+		if entity.cooldowns["Dashing"] < entity.DASH_COOLDOWN - entity.DASH_DURATION:
+			set_state("Moving")
+		elif entity.global_position.distance_to(entity.get_global_mouse_position()) > entity.STOP_RADIUS:
+			set_state("Dashing")
 
-func do_physics_process(_delta):
 	if Input.is_action_just_pressed("dash") && !entity.is_on_cooldown("Dashing"):
 		set_state("Dashing")
 	entity.move_and_slide()

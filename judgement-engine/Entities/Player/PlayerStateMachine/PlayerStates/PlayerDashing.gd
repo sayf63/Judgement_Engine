@@ -1,11 +1,12 @@
 extends State
 
-var dash_duration: float = 1
+var dash_duration: float
 
 ## Called when the state is entered
 func enter_state():
 	dash_duration = entity.DASH_DURATION
-	entity.cooldowns["Dashing"] = entity.DASH_COOLDOWN
+	if entity.cooldowns["Dashing"] == 0:
+		entity.cooldowns["Dashing"] = entity.DASH_COOLDOWN
 
 ## Called every frame
 func do_process(_delta):
@@ -21,7 +22,7 @@ func do_physics_process(delta):
 	var mouse_position = entity.get_global_mouse_position()
 	
 	var distance = entity.position.distance_to(mouse_position)
-	if distance < entity.STOP_RADIUS:
+	if distance < entity.STOP_RADIUS*2:
 		set_state("Idle")
 	
 	var direction = entity.position.direction_to(mouse_position)
