@@ -14,6 +14,9 @@ height = 144.0
 script = ExtResource("1_suyeg")
 max_health = 100
 speed = 200
+acceleration = 12.0
+decceleration = 12.0
+detection_range = 300
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1058222678]
 texture = ExtResource("1_sou0s")
@@ -31,8 +34,6 @@ entity_sprite = NodePath("../sprite")
 
 [node name="idle" type="Node" parent="state_machine" unique_id=937720025]
 script = ExtResource("4_5kg3w")
-decceleration = 12.0
 
 [node name="follow" type="Node" parent="state_machine" unique_id=1633087806]
 script = ExtResource("5_8wq1e")
-acceleration = 12.0

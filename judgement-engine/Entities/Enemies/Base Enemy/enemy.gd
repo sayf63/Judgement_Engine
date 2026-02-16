@@ -7,4 +7,9 @@ var player: Node
 @onready var health = max_health
 
 @export var defense: int
+
 @export var speed: int
+@export var acceleration: float
+@export var decceleration: float
+
+@export var detection_range: int

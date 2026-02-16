@@ -1,9 +1,10 @@
 extends State
 
-@export var acceleration: float
 
 func do_physics_process(delta):
-	entity.velocity = lerp(entity.velocity, entity.get_local_mouse_position().normalized() * entity.speed, acceleration * delta)
+	# Accelerates the enemy toward the mouse
+	entity.velocity = lerp(entity.velocity, entity.get_local_mouse_position().normalized() * entity.speed, entity.acceleration * delta)
 	
-	if entity.distance_to(entity.get_global_mouse_position()) > 300:
+	# Sets state to "idle" if mouse goes out of range
+	if entity.global_position.distance_to(entity.get_global_mouse_position()) > entity.detection_range:
 		set_state("idle")
