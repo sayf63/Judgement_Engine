@@ -1,13 +1,5 @@
 extends State
 
-## Called when the state is entered
-func enter_state():
-	pass
-
-## Called every frame
-func do_process(_delta):
-	pass
-
 ## Called every physics frame
 func do_physics_process(delta):
 	if Input.is_action_just_pressed("dash") && !entity.is_on_cooldown("Dashing"):

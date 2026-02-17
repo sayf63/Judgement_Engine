@@ -8,10 +8,6 @@ func enter_state():
 	if entity.cooldowns["Dashing"] == 0:
 		entity.cooldowns["Dashing"] = entity.DASH_COOLDOWN
 
-## Called every frame
-func do_process(_delta):
-	pass
-
 ## Called every physics frame
 func do_physics_process(delta):
 	dash_duration -= delta
