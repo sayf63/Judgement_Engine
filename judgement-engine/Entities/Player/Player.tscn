@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cac2qf0buevcy"]
 
 [ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_e5kic"]
-[ext_resource type="Script" uid="uid://dhb8bjagmiq67" path="res://Entities/Player/Player.gd" id="1_ww0jn"]
-[ext_resource type="PackedScene" uid="uid://bteatyl84d520" path="res://Entities/Player/Weapon/PlayerWeapon.tscn" id="3_vweq0"]
-[ext_resource type="Script" uid="uid://c8rfyr6gup3x3" path="res://Entities/Player/PlayerStateMachine/PlayerStateMachine.gd.gd" id="4_hj1c0"]
-[ext_resource type="Script" uid="uid://b1jw371l2c5tt" path="res://Entities/Player/PlayerStateMachine/PlayerStates/PlayerIdle.gd" id="5_hj1c0"]
-[ext_resource type="Script" uid="uid://llbfhas6et5t" path="res://Entities/Player/PlayerStateMachine/PlayerStates/PlayerMoving.gd" id="6_x44r4"]
-[ext_resource type="Script" uid="uid://ghiu6bajqh63" path="res://Entities/Player/PlayerStateMachine/PlayerStates/PlayerDashing.gd" id="7_761t5"]
+[ext_resource type="Script" uid="uid://dhb8bjagmiq67" path="res://Entities/Player/player.gd" id="1_ww0jn"]
+[ext_resource type="PackedScene" uid="uid://bteatyl84d520" path="res://Entities/Player/Weapon/player_weapon.tscn" id="3_vweq0"]
+[ext_resource type="Script" uid="uid://c8rfyr6gup3x3" path="res://Entities/Player/PlayerStateMachine/player_state_machine.gd" id="4_hj1c0"]
+[ext_resource type="Script" uid="uid://b1jw371l2c5tt" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_idle.gd" id="5_hj1c0"]
+[ext_resource type="Script" uid="uid://llbfhas6et5t" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_moving.gd" id="6_x44r4"]
+[ext_resource type="Script" uid="uid://ghiu6bajqh63" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_dashing.gd" id="7_761t5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ww0jn"]
 radius = 50.0

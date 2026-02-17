@@ -35,7 +35,7 @@ func is_on_cooldown(action: String) -> bool:
 
 func handle_weapon_position(delta: float, mouse_position: Vector2):
 	var weapon_desired_angle := global_position.angle_to_point(mouse_position)
-	Weapon.rotation = lerp_angle(
+	Weapon.rotation = rotate_toward(
 		Weapon.rotation,
 		weapon_desired_angle,
 		WEAPON_ROTATION_SPEED * delta
