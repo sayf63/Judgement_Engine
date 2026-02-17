@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var STOP_RADIUS = 5
 
 @onready var Weapon = $PlayerWeapon
+@onready var States = $StateMachine
 
 var cooldowns: Dictionary = {
 	"Dashing": DASH_COOLDOWN

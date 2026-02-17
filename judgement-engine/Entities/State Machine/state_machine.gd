@@ -28,6 +28,12 @@ func _ready():
 	# Sets the intial state
 	set_state(default_state)
 
+## Returns the current state's name; if current_state DNE, returns ""
+func get_state() -> String:
+	if !current_state:
+		return ""
+	return current_state.name
+
 func set_state(state_name: String):
 	# Returns if state doesn't exist
 	if !get_node(state_name):
