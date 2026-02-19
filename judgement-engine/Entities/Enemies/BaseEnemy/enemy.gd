@@ -17,19 +17,22 @@ var player: Node
 
 @export var detection_range: int
 
-
-func _ready():
-	pass
-
-func _physics_process(delta):
-	if health <= 0:
-		die()
-
+# Inputs
 func take_damage(damage: int):
 	health -= damage
 	# Keeps enemy health between 0 and max_health
 	health = clamp(health, 0, max_health)
 	damaged.emit()
 
+
+
+# Internal
+func _physics_process(delta):
+	if health <= 0:
+		die()
+
+
+
+# Outputs
 func die():
 	queue_free()
