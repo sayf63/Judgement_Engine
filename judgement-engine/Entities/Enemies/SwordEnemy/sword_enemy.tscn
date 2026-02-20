@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://btmkwcyjc1qrx"]
+
+[ext_resource type="PackedScene" uid="uid://cuws01826bgf7" path="res://Entities/Enemies/BaseEnemy/BaseEnemy.tscn" id="1_61ctk"]
+[ext_resource type="Script" uid="uid://cqnwjtxyfjcpy" path="res://Entities/Enemies/SwordEnemy/SwordEnemyStates/sword_enemy_attack.gd" id="2_dqmbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ctk"]
+size = Vector2(192, 20)
+
+[node name="sword_enemy" unique_id=1742152106 instance=ExtResource("1_61ctk")]
+
+[node name="idle" type="Node2D" parent="state_machine" parent_id_path=PackedInt32Array(1992571038) index="0" unique_id=1898562073]
+
+[node name="follow" type="Node2D" parent="state_machine" parent_id_path=PackedInt32Array(1992571038) index="1" unique_id=1726587378]
+
+[node name="attack" type="Node2D" parent="state_machine" parent_id_path=PackedInt32Array(1992571038) index="2" unique_id=1681130787]
+script = ExtResource("2_dqmbj")
+
+[node name="hurtbox" type="Area2D" parent="state_machine/attack" index="0" unique_id=1083769517]
+
+[node name="collider" type="CollisionShape2D" parent="state_machine/attack/hurtbox" index="0" unique_id=1504318919]
+position = Vector2(96, 0)
+shape = SubResource("RectangleShape2D_61ctk")
