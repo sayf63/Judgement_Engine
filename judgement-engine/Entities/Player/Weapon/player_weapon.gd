@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if enemy is Enemy:
-		enemy.take_damage(DAMAGE * (velocity.length() / SPEED))
+		enemy.take_damage( DAMAGE * min(1.5, (velocity.length()/SPEED)) )
 	
 
 func reset_cooldown(key: String) -> void:

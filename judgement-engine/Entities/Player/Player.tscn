@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b1jw371l2c5tt" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_idle.gd" id="5_hj1c0"]
 [ext_resource type="Script" uid="uid://llbfhas6et5t" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_moving.gd" id="6_x44r4"]
 [ext_resource type="Script" uid="uid://ghiu6bajqh63" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_dashing.gd" id="7_761t5"]
+[ext_resource type="PackedScene" uid="uid://cuws01826bgf7" path="res://Entities/Enemies/BaseEnemy/BaseEnemy.tscn" id="8_x44r4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hj1c0"]
 radius = 16.0
@@ -47,3 +48,35 @@ script = ExtResource("6_x44r4")
 
 [node name="Dashing" type="Node" parent="StateMachine" unique_id=486196409]
 script = ExtResource("7_761t5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=84114197]
+
+[node name="test" type="Node2D" parent="." unique_id=1471186107]
+top_level = true
+
+[node name="base_enemy" parent="test" unique_id=1742152106 instance=ExtResource("8_x44r4")]
+position = Vector2(432, 198)
+
+[node name="base_enemy2" parent="test" unique_id=56477228 instance=ExtResource("8_x44r4")]
+position = Vector2(224, 441)
+
+[node name="base_enemy3" parent="test" unique_id=1573388889 instance=ExtResource("8_x44r4")]
+position = Vector2(-68, 241)
+
+[node name="base_enemy4" parent="test" unique_id=532406367 instance=ExtResource("8_x44r4")]
+position = Vector2(309, 139)
+
+[node name="base_enemy5" parent="test" unique_id=988220327 instance=ExtResource("8_x44r4")]
+position = Vector2(-297, 85)
+
+[node name="base_enemy6" parent="test" unique_id=1708826694 instance=ExtResource("8_x44r4")]
+position = Vector2(318, -139)
+
+[node name="base_enemy7" parent="test" unique_id=17634140 instance=ExtResource("8_x44r4")]
+position = Vector2(-307, -257)
+
+[node name="base_enemy8" parent="test" unique_id=1497086710 instance=ExtResource("8_x44r4")]
+position = Vector2(146, -354)
+
+[node name="base_enemy9" parent="test" unique_id=1942824902 instance=ExtResource("8_x44r4")]
+position = Vector2(-488, 347)
