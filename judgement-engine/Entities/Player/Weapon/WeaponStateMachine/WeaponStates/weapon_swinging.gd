@@ -15,9 +15,9 @@ func do_physics_process(delta):
     var to_target = entity.global_position.direction_to(target_position)
     
     # perpendicular vector (rotated 90 degrees)
-    var sideways = to_target.orthogonal()
+    #var sideways = to_target.orthogonal()
     
-    var desired_velocity = to_target * entity.SPEED*2 + sideways*entity.SWING_ARC_SIZE
+    var desired_velocity = to_target * entity.SPEED*2 #+ sideways*entity.SWING_ARC_SIZE
     
     entity.velocity = desired_velocity
     

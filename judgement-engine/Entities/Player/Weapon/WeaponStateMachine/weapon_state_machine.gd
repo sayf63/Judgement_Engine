@@ -19,25 +19,25 @@ func _reflect_off_edge():
 	
 	# Left
 	if pos.x < screen_rect.position.x:
-		pos.x = screen_rect.position.x
+		pos.x = screen_rect.position.x+1
 		vel.x *= -1
 		bounced = true
 	
 	# Right
 	elif pos.x > screen_rect.end.x:
-		pos.x = screen_rect.end.x
+		pos.x = screen_rect.end.x-1
 		vel.x *= -1
 		bounced = true
 	
 	# Top
 	if pos.y < screen_rect.position.y:
-		pos.y = screen_rect.position.y
+		pos.y = screen_rect.position.y+1
 		vel.y *= -1
 		bounced = true
 	
 	# Bottom
 	elif pos.y > screen_rect.end.y:
-		pos.y = screen_rect.end.y
+		pos.y = screen_rect.end.y-1
 		vel.y *= -1
 		bounced = true
 	

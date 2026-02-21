@@ -10,18 +10,17 @@ func do_physics_process(delta):
 	if entity.velocity.length() > entity.SPEED:
 		entity.velocity = entity.velocity.normalized() * entity.SPEED
 	# steer velocity towards cursor slightly
-	if entity.position.distance_to(mouse_position) > 100:
-		var vel_dir = entity.velocity.normalized()
-		var dot = vel_dir.dot(direction)
+	var vel_dir = entity.velocity.normalized()
+	var dot = vel_dir.dot(direction)
+	
+	var angle_limit = deg_to_rad(20)
+	var cos_limit = cos(angle_limit)
+	
+	if dot < cos_limit:
+		var curr_speed = entity.velocity.length()
+		var new_angle = rotate_toward(entity.velocity.angle(), direction.angle(), entity.STEER_STRENGTH/100)
 		
-		var angle_limit = deg_to_rad(20)
-		var cos_limit = cos(angle_limit)
-		
-		if dot < cos_limit:
-			var curr_speed = entity.velocity.length()
-			var new_angle = rotate_toward(entity.velocity.angle(), direction.angle(), entity.STEER_STRENGTH/100)
-			
-			entity.velocity = Vector2.from_angle(new_angle) * curr_speed
+		entity.velocity = Vector2.from_angle(new_angle) * curr_speed
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("swing") && entity.cooldowns["Swinging"] == 0:
