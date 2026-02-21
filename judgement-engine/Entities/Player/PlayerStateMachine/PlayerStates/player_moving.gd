@@ -4,10 +4,11 @@ extends State
 func do_physics_process(delta):
 	if Input.is_action_just_pressed("dash") && !entity.is_on_cooldown("Dashing"):
 		set_state("Dashing")
-	  
+	 
+	
 	var mouse_position = entity.get_global_mouse_position()
 	var distance = entity.position.distance_to(mouse_position)
-	if distance < entity.STOP_RADIUS:
+	if distance < entity.STOP_RADIUS or Input.is_action_pressed("anchor"):
 		set_state("Idle")
 	
 	var min_speed_factor := 0.1

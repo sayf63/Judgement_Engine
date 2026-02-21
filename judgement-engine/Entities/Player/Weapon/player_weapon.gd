@@ -5,9 +5,10 @@ extends CharacterBody2D
 
 @export var ACCEL := 500.0
 @export var DAMAGE := 10.0
-@export var SPEED := 400.0
+@export var SPEED := 1000.0
 @export var SWING_CD := 1.0
-@export var STEER_STRENGTH := 1.0
+@export var STEER_STRENGTH := 5.0
+@export var SWING_ARC_SIZE := 100.0
 
 var cooldowns: Dictionary = {
 	"Swinging": SWING_CD
@@ -23,18 +24,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for key in cooldowns:
 		cooldowns[key] = max(cooldowns[key] - delta, 0.0)
-	print(cooldowns["Swinging"])
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
-	if enemy is not Enemy:
-		return
-	enemy.take_damage(DAMAGE * (velocity.length() / SPEED))
+	if enemy is Enemy:
+		enemy.take_damage(DAMAGE * (velocity.length() / SPEED))
+	
 
 func reset_cooldown(key: String) -> void:
 	match key:
 		"Swinging":
-			print("Resetting SWINGING CD")
 			cooldowns["Swinging"] = SWING_CD
 		_:
 			pass

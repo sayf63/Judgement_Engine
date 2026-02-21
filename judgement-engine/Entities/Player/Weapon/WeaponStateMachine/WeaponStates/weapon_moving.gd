@@ -4,7 +4,7 @@ func do_physics_process(delta):
 	var mouse_position = entity.get_global_mouse_position()
 	var direction = entity.position.direction_to(mouse_position)
 	entity.velocity = entity.velocity.move_toward(
-		direction*entity.SPEED,
+		direction*entity.SPEED*50,
 		entity.ACCEL*delta
 	)
 	if entity.velocity.length() > entity.SPEED:
@@ -19,7 +19,7 @@ func do_physics_process(delta):
 		
 		if dot < cos_limit:
 			var curr_speed = entity.velocity.length()
-			var new_angle = rotate_toward(entity.velocity.angle(), direction.angle(), entity.STEER_STRENGTH/50)
+			var new_angle = rotate_toward(entity.velocity.angle(), direction.angle(), entity.STEER_STRENGTH/100)
 			
 			entity.velocity = Vector2.from_angle(new_angle) * curr_speed
 

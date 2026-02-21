@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dqbpojfjkgv20" path="res://Entities/Player/Weapon/WeaponStateMachine/WeaponStates/weapon_swinging.gd" id="4_bmo0q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rtwd"]
+height = 82.0
 
 [node name="PlayerWeapon" type="CharacterBody2D" unique_id=769343133]
 script = ExtResource("1_pkqv3")
@@ -23,6 +24,7 @@ script = ExtResource("3_i3bxa")
 script = ExtResource("4_bmo0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=456365847]
+rotation = 0.7853982
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_2rtwd")
 flip_v = true

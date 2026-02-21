@@ -18,7 +18,7 @@ func do_physics_process(delta):
 	var mouse_position = entity.get_global_mouse_position()
 	
 	var distance = entity.position.distance_to(mouse_position)
-	if distance < entity.STOP_RADIUS*2:
+	if distance < entity.STOP_RADIUS*2 or Input.is_action_pressed("anchor"):
 		set_state("Idle")
 	
 	var direction = entity.position.direction_to(mouse_position)

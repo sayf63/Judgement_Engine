@@ -20,6 +20,7 @@ var player: Node
 # Inputs
 func take_damage(damage: int):
 	health -= damage
+	print(damage)
 	# Keeps enemy health between 0 and max_health
 	health = clamp(health, 0, max_health)
 	damaged.emit()
