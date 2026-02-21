@@ -11,6 +11,8 @@ func _physics_process(delta):
 
 func _reflect_off_edge():
 	var screen_rect = _get_camera_rect()
+	if screen_rect == Rect2():
+		screen_rect = get_viewport().get_visible_rect()
 	var pos = entity.global_position
 	var vel = entity.velocity
 	var bounced = false
