@@ -9,6 +9,9 @@
 radius = 22.0
 height = 144.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mxb2"]
+size = Vector2(126, 126)
+
 [node name="base_enemy" type="CharacterBody2D" unique_id=1742152106]
 script = ExtResource("1_suyeg")
 max_health = 100
@@ -20,11 +23,6 @@ detection_range = 300
 [node name="sprite" type="Sprite2D" parent="." unique_id=1058222678]
 texture = ExtResource("1_sou0s")
 
-[node name="collision" type="CollisionShape2D" parent="." unique_id=488236401]
-position = Vector2(0, 53)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_jv363")
-
 [node name="state_machine" type="Node2D" parent="." unique_id=1992571038 node_paths=PackedStringArray("entity", "entity_sprite")]
 script = ExtResource("2_suyeg")
 default_state = "idle"
@@ -34,3 +32,13 @@ entity_sprite = NodePath("../sprite")
 [node name="enemy_health_bar" parent="." unique_id=1728323823 instance=ExtResource("6_f7fqs")]
 offset_top = -88.0
 offset_bottom = -72.0
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=488236401]
+position = Vector2(0, 53)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv363")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=923528314]
+
+[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox" unique_id=1521953114]
+shape = SubResource("RectangleShape2D_0mxb2")

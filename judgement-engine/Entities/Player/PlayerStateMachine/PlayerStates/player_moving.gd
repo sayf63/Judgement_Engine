@@ -4,7 +4,7 @@ extends State
 func do_physics_process(delta):
 	if Input.is_action_just_pressed("dash") && !entity.is_on_cooldown("Dashing"):
 		set_state("Dashing")
-	
+	  
 	var mouse_position = entity.get_global_mouse_position()
 	var distance = entity.position.distance_to(mouse_position)
 	if distance < entity.STOP_RADIUS:
@@ -15,9 +15,9 @@ func do_physics_process(delta):
 	var target_speed_multiplier = lerp(min_speed_factor, 1.0, t)
 	
 	var direction = entity.position.direction_to(mouse_position)
-	entity.velocity = Vector2(
-		move_toward(entity.velocity.x, direction.x * entity.SPEED * target_speed_multiplier * delta*50, entity.SPEED),
-		move_toward(entity.velocity.y, direction.y * entity.SPEED * target_speed_multiplier * delta*50, entity.SPEED)
+	entity.velocity = entity.velocity.move_toward(
+		direction*entity.SPEED*target_speed_multiplier*delta*50,
+		entity.SPEED
 	)
 	entity.move_and_slide()
 

@@ -24,14 +24,10 @@ func take_damage(damage: int):
 	health = clamp(health, 0, max_health)
 	damaged.emit()
 
-
-
 # Internal
 func _physics_process(delta):
 	if health <= 0:
 		die()
-
-
 
 # Outputs
 func die():

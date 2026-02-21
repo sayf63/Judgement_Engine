@@ -22,9 +22,9 @@ func do_physics_process(delta):
 		set_state("Idle")
 	
 	var direction = entity.position.direction_to(mouse_position)
-	entity.velocity = Vector2(
-		move_toward(entity.velocity.x, direction.x * entity.SPEED * target_speed_multiplier * delta*50, entity.SPEED),
-		move_toward(entity.velocity.y, direction.y * entity.SPEED * target_speed_multiplier * delta*50, entity.SPEED)
+	entity.velocity = entity.velocity.move_toward(
+		direction*entity.SPEED*target_speed_multiplier*delta*50,
+		entity.SPEED
 	)
 	
 	entity.move_and_slide()

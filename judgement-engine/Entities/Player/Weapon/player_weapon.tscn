@@ -1,10 +1,35 @@
 [gd_scene format=3 uid="uid://bteatyl84d520"]
 
-[node name="PlayerWeapon" type="Node2D" unique_id=1460599134]
+[ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_2rtwd"]
+[ext_resource type="Script" uid="uid://babq6yqm2bvb2" path="res://Entities/Player/Weapon/player_weapon.gd" id="1_pkqv3"]
+[ext_resource type="Script" uid="uid://4uist6ycgyu0" path="res://Entities/Player/Weapon/WeaponStateMachine/weapon_state_machine.gd" id="2_jj6u5"]
+[ext_resource type="Script" uid="uid://dyldvbmeew1n3" path="res://Entities/Player/Weapon/WeaponStateMachine/WeaponStates/weapon_moving.gd" id="3_i3bxa"]
+[ext_resource type="Script" uid="uid://dqbpojfjkgv20" path="res://Entities/Player/Weapon/WeaponStateMachine/WeaponStates/weapon_swinging.gd" id="4_bmo0q"]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=774028129]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.15416896, 0.19023678, 0.20818987, 1)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rtwd"]
+
+[node name="PlayerWeapon" type="CharacterBody2D" unique_id=769343133]
+script = ExtResource("1_pkqv3")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1652079017 node_paths=PackedStringArray("entity")]
+script = ExtResource("2_jj6u5")
+default_state = "Moving"
+entity = NodePath("..")
+
+[node name="Moving" type="Node" parent="StateMachine" unique_id=1009721897]
+script = ExtResource("3_i3bxa")
+
+[node name="Swinging" type="Node" parent="StateMachine" unique_id=1353608138]
+script = ExtResource("4_bmo0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=456365847]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2rtwd")
+flip_v = true
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1275600159]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox" unique_id=1215787520]
+shape = SubResource("CapsuleShape2D_2rtwd")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

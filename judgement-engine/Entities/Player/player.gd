@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
+signal player_hurt(health_change)
+signal player_healed(health_change)
+
 @export var SPEED := 200.0
 @export var DASH_MULTIPLIER := 2.0
 @export var DASH_COOLDOWN := 2.0
@@ -9,6 +12,20 @@ extends CharacterBody2D
 @export var WEAPON_ROTATION_SPEED := 10.0
 @export var SLOW_RADIUS = 50.0
 @export var STOP_RADIUS = 5
+
+@export var MAX_HEALTH = 100
+@export var current_health = MAX_HEALTH:
+	set(value):
+		if value < current_health:
+			print("player was hurt :(")
+			emit_signal("player_hurt", value - current_health)
+		elif value > current_health:
+			print("player was healed :)")
+			emit_signal("player_healed", value - current_health)
+		else:
+			print("Player's health was set to what it already was...")
+		
+		current_health = value
 
 @onready var Weapon = $PlayerWeapon
 @onready var States = $StateMachine
@@ -25,7 +42,7 @@ func _process(delta: float) -> void:
 	for key in cooldowns:
 		cooldowns[key] = max(cooldowns[key] - delta, 0.0)
 	
-	handle_weapon_position(delta, get_global_mouse_position())
+	#handle_weapon_position(delta, get_global_mouse_position())
 
 func _physics_process(_delta: float) -> void:
 	if cooldowns["Dashing"] > DASH_COOLDOWN - DASH_DURATION:
