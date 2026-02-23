@@ -11,11 +11,11 @@ func enter_state():
 	pass
 
 ## Called every frame
-func do_process(delta):
+func do_process(_delta):
 	pass
 
 ## Called every physics frame
-func do_physics_process(delta):
+func do_physics_process(_delta):
 	pass
 
 ## Called when the state is exited

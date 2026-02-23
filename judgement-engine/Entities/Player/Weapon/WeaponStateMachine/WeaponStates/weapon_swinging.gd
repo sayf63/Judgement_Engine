@@ -8,7 +8,7 @@ func enter_state():
 	#entity.velocity = Vector2.ZERO
 	entity.reset_cooldown("Swinging")
 
-func do_physics_process(delta):
+func do_physics_process(_delta):
 	if (entity.position-target_position).length() < 100:
 		set_state("Moving")
 	

@@ -38,8 +38,8 @@ var real_max_speed := SPEED
 		
 		current_health = value
 
-@onready var Weapon = $PlayerWeapon
-@onready var States = $StateMachine
+@onready var weapon = $PlayerWeapon
+@onready var states = $StateMachine
 
 var cooldowns: Dictionary = {
 	"Dashing": DASH_COOLDOWN

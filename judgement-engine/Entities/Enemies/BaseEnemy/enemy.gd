@@ -23,10 +23,11 @@ func take_damage(damage: int):
 	print(damage)
 	# Keeps enemy health between 0 and max_health
 	health = clamp(health, 0, max_health)
+	AudioManager.play("res://Assets/Audio/hitHurt.wav")
 	damaged.emit()
 
 # Internal
-func _physics_process(delta):
+func _physics_process(_delta):
 	if health <= 0:
 		die()
 

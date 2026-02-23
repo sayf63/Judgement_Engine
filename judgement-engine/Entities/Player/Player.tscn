@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b1jw371l2c5tt" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_idle.gd" id="5_hj1c0"]
 [ext_resource type="Script" uid="uid://llbfhas6et5t" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_moving.gd" id="6_x44r4"]
 [ext_resource type="Script" uid="uid://ghiu6bajqh63" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_dashing.gd" id="7_761t5"]
+[ext_resource type="PackedScene" uid="uid://cuws01826bgf7" path="res://Entities/Enemies/BaseEnemy/BaseEnemy.tscn" id="8_x44r4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hj1c0"]
 radius = 16.0
@@ -47,3 +48,8 @@ script = ExtResource("7_761t5")
 
 [node name="Moving" type="Node" parent="StateMachine" unique_id=2045006530]
 script = ExtResource("6_x44r4")
+
+[node name="base_enemy" parent="." unique_id=1742152106 instance=ExtResource("8_x44r4")]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=339764742]

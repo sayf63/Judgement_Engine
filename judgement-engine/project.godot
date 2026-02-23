@@ -15,6 +15,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://f4rssnykxxte"
 config/icon="uid://f4rssnykxxte"
 
+[autoload]
+
+AudioManager="*uid://ch2adtgllmqok"
+
 [display]
 
 window/stretch/mode="canvas_items"
