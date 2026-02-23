@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_sou0s"]
 [ext_resource type="Script" uid="uid://g4vke30akclv" path="res://Entities/Enemies/BaseEnemy/enemy.gd" id="1_suyeg"]
-[ext_resource type="Script" uid="uid://dxlkjyqfobsq0" path="res://Entities/State Machine/state_machine.gd" id="2_suyeg"]
+[ext_resource type="Script" uid="uid://dxlkjyqfobsq0" path="res://Systems/StateMachine/state_machine.gd" id="2_suyeg"]
 [ext_resource type="PackedScene" uid="uid://bcmqylbmju6yv" path="res://Entities/Enemies/EnemyComponents/health_bar/enemy_health_bar.tscn" id="6_f7fqs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jv363"]
