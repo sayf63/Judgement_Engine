@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var DAMAGE := 10.0
 @export var SPEED := 1000.0
 @export var SWING_CD := 1.0
-@export var STEER_STRENGTH := 5.0
+@export var STEER_STRENGTH := 10.0
 @export var SWING_ARC_SIZE := 100.0
 
 var cooldowns: Dictionary = {
@@ -29,7 +29,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	if enemy is Enemy:
 		enemy.take_damage( DAMAGE * min(1.5, (velocity.length()/SPEED)) )
-	
 
 func reset_cooldown(key: String) -> void:
 	match key:

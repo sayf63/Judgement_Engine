@@ -8,7 +8,7 @@ func enter_state():
 func do_physics_process(_delta):
 	entity.velocity = Vector2.ZERO
 	if !Input.is_action_pressed("anchor") and entity.global_position.distance_to(entity.get_global_mouse_position()) > entity.STOP_RADIUS:
-		if entity.cooldowns["Dashing"] < entity.DASH_COOLDOWN - entity.DASH_DURATION:
+		if entity.cooldowns["Dashing"] < entity.DASH_COOLDOWN - entity.DASH_DURATION && entity.DASH_COOLDOWN> entity.DASH_DURATION:
 			set_state("Moving")
 		else:
 			set_state("Dashing")

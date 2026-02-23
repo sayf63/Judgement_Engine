@@ -18,8 +18,9 @@ signal player_healed(health_change)
 @export var DASH_DURATION := 1.0
 @export var WEAPON_DISTANCE := 100.0
 @export var WEAPON_ROTATION_SPEED := 10.0
-@export var SLOW_RADIUS = 50.0
-@export var STOP_RADIUS = 5
+@export var SLOW_RADIUS := 50.0
+@export var STOP_RADIUS := 5
+@export var DEFENCE := 0.0
 
 var real_max_speed := SPEED
 
