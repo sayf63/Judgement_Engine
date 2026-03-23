@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ProjectileResource" format=3 uid="uid://7yahayxhbxjv"]
+
+[ext_resource type="Script" uid="uid://4hhj7cix2awk" path="res://Entities/Enemies/Projectiles/BaseProjectile/projectile_resource.gd" id="1_iy73r"]
+[ext_resource type="Texture2D" uid="uid://decwkvjirtjhe" path="res://Entities/Enemies/Projectiles/ProjectileTypes/BasicProjectile/placeholder_bullet.png" id="2_kougw"]
+
+[resource]
+script = ExtResource("1_iy73r")
+sprite = ExtResource("2_kougw")
+collider_radius = 5.0
+metadata/_custom_type_script = "uid://4hhj7cix2awk"
