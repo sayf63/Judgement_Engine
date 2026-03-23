@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://brmnj8bu3qr8f"]
+
+[ext_resource type="Script" uid="uid://bgx8scfffx216" path="res://Entities/Enemies/Projectiles/ProjectilePool/projectile_pool.gd" id="1_7nfiq"]
+[ext_resource type="PackedScene" uid="uid://blsu0bd7blel6" path="res://Entities/Enemies/Projectiles/BaseProjectile/projectile.tscn" id="2_cmkjf"]
+
+[node name="projectile_pool" type="Node2D" unique_id=1383591639]
+script = ExtResource("1_7nfiq")
+initial_amount = 10
+proj_scene = ExtResource("2_cmkjf")

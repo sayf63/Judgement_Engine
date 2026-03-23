@@ -58,3 +58,4 @@ func despawn():
 		collider.set_deferred("disabled", true)
 		hide()
 		global_position = Vector2.ZERO
+		available = true
