@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cxo07oe8moys4"]
+
+[ext_resource type="Script" uid="uid://dmdoftlsi6536" path="res://room.gd" id="1_o7vxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bisa2"]
+size = Vector2(160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o3f6"]
+size = Vector2(160, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5vuv"]
+size = Vector2(32, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka7wq"]
+size = Vector2(32, 160)
+
+[node name="room" type="Node2D" unique_id=1658072280]
+script = ExtResource("1_o7vxw")
+
+[node name="roomrect" type="ColorRect" parent="." unique_id=2122052469]
+offset_right = 640.0
+offset_bottom = 640.0
+color = Color(0.047058824, 0.101960786, 0.11764706, 1)
+
+[node name="DoorNorth" type="Area2D" parent="." unique_id=441254930]
+position = Vector2(240, -16)
+
+[node name="ColorRect" type="ColorRect" parent="DoorNorth" unique_id=456915081]
+offset_left = -51.0
+offset_top = -10.0
+offset_right = 109.0
+offset_bottom = 22.0
+color = Color(0.033853278, 0.033853278, 0.033853274, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorNorth" unique_id=645998331]
+position = Vector2(31, 6)
+shape = SubResource("RectangleShape2D_bisa2")
+
+[node name="DoorSouth" type="Area2D" parent="." unique_id=968461404]
+position = Vector2(240, 624)
+
+[node name="ColorRect" type="ColorRect" parent="DoorSouth" unique_id=314094538]
+offset_right = 160.0
+offset_bottom = 32.0
+color = Color(0.0253638, 0.0253638, 0.025363795, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorSouth" unique_id=1872475071]
+shape = SubResource("RectangleShape2D_4o3f6")
+
+[node name="DoorEast" type="Area2D" parent="." unique_id=418899348]
+position = Vector2(624, 240)
+
+[node name="ColorRect" type="ColorRect" parent="DoorEast" unique_id=124092374]
+offset_right = 32.0
+offset_bottom = 160.0
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorEast" unique_id=468736078]
+shape = SubResource("RectangleShape2D_v5vuv")
+
+[node name="DoorWest" type="Area2D" parent="." unique_id=1249089423]
+position = Vector2(-16, 240)
+
+[node name="ColorRect" type="ColorRect" parent="DoorWest" unique_id=1070317429]
+offset_right = 32.0
+offset_bottom = 160.0
+color = Color(0.011087579, 0.011087578, 0.01108758, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorWest" unique_id=683256515]
+shape = SubResource("RectangleShape2D_ka7wq")
