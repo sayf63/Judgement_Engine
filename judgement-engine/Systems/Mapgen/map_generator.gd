@@ -64,16 +64,16 @@ func generate_connected_map():
 				"type": "normal",
 				"connections": []
 			})
-
+	
 	var current_x = map_width / 2
 	var current_y = map_height / 2
 	place_room(current_x, current_y, "start")
 	var rooms_spawned = 1
-
+	
 	var start_x = current_x
 	var start_y = current_y
 	var start_connections = 0
-
+	
 	while start_connections < 2 and rooms_spawned < room_count:
 		for i in range(DIRECTIONS.size()):
 			if start_connections >= 2:
@@ -177,7 +177,7 @@ func apply_doors_to_all_rooms():
 			var nx = x + DIRECTIONS[offset][0]
 			var ny = y + DIRECTIONS[offset][1]
 			door_leads[dir] = grid[nx][ny]["type"]
-
+		
 		room.player_entered_door.connect(_on_player_entered_door)
 		room.setup(connections, room_type, door_leads)
 
@@ -188,7 +188,7 @@ func _on_player_entered_door(from_room, direction):
 	var offset = DIR_NAMES.find(direction)
 	var nx = x + DIRECTIONS[offset][0]
 	var ny = y + DIRECTIONS[offset][1]
-
+	
 	var dest_room = null
 	for room in get_children():
 		if not room.has_meta("grid_x"):

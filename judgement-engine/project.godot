@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Judgement Engine"
+run/main_scene="uid://bmw2lfbtxjptn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://f4rssnykxxte"
 config/icon="uid://f4rssnykxxte"

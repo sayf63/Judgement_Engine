@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bmw2lfbtxjptn"]
+
+[ext_resource type="Script" uid="uid://bhaskx6kg830p" path="res://Systems/Mapgen/map_generator.gd" id="1_0r6lh"]
+[ext_resource type="PackedScene" uid="uid://c3adnhwgbqn0k" path="res://Systems/Mapgen/room.tscn" id="2_ej6gg"]
+[ext_resource type="PackedScene" uid="uid://cxo07oe8moys4" path="res://Systems/Mapgen/room_boss.tscn" id="3_ki6ur"]
+[ext_resource type="PackedScene" uid="uid://dmxbs6h426jya" path="res://Systems/Mapgen/room_shop.tscn" id="4_l3vp1"]
+[ext_resource type="PackedScene" uid="uid://cac2qf0buevcy" path="res://Entities/Player/Player.tscn" id="5_06fqk"]
+
+[node name="mapGenerator" type="Node2D" unique_id=1825716496]
+script = ExtResource("1_0r6lh")
+room_scene = ExtResource("2_ej6gg")
+boss_room_scene = ExtResource("3_ki6ur")
+shop_room_scene = ExtResource("4_l3vp1")
+player_scene = ExtResource("5_06fqk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2059434181]
+zoom = Vector2(0.8, 0.8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1508808481]
+
+[node name="fade" type="ColorRect" parent="CanvasLayer" unique_id=1420757994]
+offset_right = 40.0
+offset_bottom = 40.0

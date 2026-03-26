@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c3adnhwgbqn0k"]
+[gd_scene format=3 uid="uid://cxo07oe8moys4"]
 
-[ext_resource type="Script" uid="uid://dmdoftlsi6536" path="res://room.gd" id="1_88gup"]
+[ext_resource type="Script" uid="uid://dmdoftlsi6536" path="res://Systems/Mapgen/room.gd" id="1_o7vxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bisa2"]
 size = Vector2(160, 32)
@@ -14,8 +14,8 @@ size = Vector2(32, 160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka7wq"]
 size = Vector2(32, 160)
 
-[node name="room2" type="Node2D" unique_id=1658072280]
-script = ExtResource("1_88gup")
+[node name="room" type="Node2D" unique_id=1658072280]
+script = ExtResource("1_o7vxw")
 
 [node name="roomrect" type="ColorRect" parent="." unique_id=2122052469]
 offset_right = 640.0
