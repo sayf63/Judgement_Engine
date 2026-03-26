@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://bteatyl84d520"]
 
-[ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_2rtwd"]
 [ext_resource type="Script" uid="uid://babq6yqm2bvb2" path="res://Entities/Player/Weapon/player_weapon.gd" id="1_pkqv3"]
 [ext_resource type="Script" uid="uid://4uist6ycgyu0" path="res://Entities/Player/Weapon/WeaponStateMachine/weapon_state_machine.gd" id="2_jj6u5"]
 [ext_resource type="Script" uid="uid://dyldvbmeew1n3" path="res://Entities/Player/Weapon/WeaponStateMachine/WeaponStates/weapon_moving.gd" id="3_i3bxa"]
 [ext_resource type="Script" uid="uid://dqbpojfjkgv20" path="res://Entities/Player/Weapon/WeaponStateMachine/WeaponStates/weapon_swinging.gd" id="4_bmo0q"]
+[ext_resource type="Texture2D" uid="uid://06nyipdrkj6b" path="res://Assets/Sprites/Items/items_transparent.png" id="5_i3bxa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rtwd"]
-height = 82.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmo0q"]
+atlas = ExtResource("5_i3bxa")
+region = Rect2(212, 4, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3bxa"]
+radius = 20.22375
 
 [node name="PlayerWeapon" type="CharacterBody2D" unique_id=769343133]
 script = ExtResource("1_pkqv3")
@@ -25,13 +29,13 @@ script = ExtResource("4_bmo0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=456365847]
 rotation = 0.7853982
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_2rtwd")
+scale = Vector2(3.5, 3.5)
+texture = SubResource("AtlasTexture_bmo0q")
 flip_v = true
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1275600159]
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="Hitbox" unique_id=1215787520]
-shape = SubResource("CapsuleShape2D_2rtwd")
+shape = SubResource("CircleShape2D_i3bxa")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

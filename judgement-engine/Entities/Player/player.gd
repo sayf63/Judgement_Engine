@@ -4,14 +4,7 @@ extends CharacterBody2D
 signal player_hurt(health_change)
 signal player_healed(health_change)
 
-@export var SPEED := 200.0:
-	set(value):
-		# if we focus mode
-		if value*FOCUS_SPEED_SLOWDOWN == SPEED:
-			SPEED = value
-		else:
-			real_max_speed = value
-			SPEED = value
+@export var SPEED := 200.0
 @export var FOCUS_SPEED_SLOWDOWN := 2.0
 @export var DASH_MULTIPLIER := 2.0
 @export var DASH_COOLDOWN := 2.0
@@ -22,7 +15,6 @@ signal player_healed(health_change)
 @export var STOP_RADIUS := 5
 @export var DEFENCE := 0.0
 
-var real_max_speed := SPEED
 
 @export var MAX_HEALTH = 100
 @export var current_health = MAX_HEALTH:
@@ -61,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("slowdown"):
 		SPEED /= FOCUS_SPEED_SLOWDOWN
 	elif Input.is_action_just_released("slowdown"):
-		SPEED = real_max_speed
+		SPEED *= FOCUS_SPEED_SLOWDOWN
 
 func is_on_cooldown(action: String) -> bool:
 	return cooldowns[action] > 0

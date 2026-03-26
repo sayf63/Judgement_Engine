@@ -205,16 +205,16 @@ func _on_player_entered_door(from_room, direction):
 
 func transition_to_room(dest_room, entered_from_direction):
 	player.set_physics_process(false)
-
+	
 	var fade = $CanvasLayer/fade
 	var tween = create_tween()
 	tween.tween_property(fade, "modulate:a", 1.0, 0.3)
 	await tween.finished
-
+	
 	current_room.visible = false
 	dest_room.visible = true
 	current_room = dest_room
-
+	
 	var entry_dir = DIR_OPPOSITE_NAME[entered_from_direction]
 	player.position = dest_room.position + ENTRY_OFFSET[entry_dir]
 	$Camera2D.position = dest_room.position + Vector2(320,320)

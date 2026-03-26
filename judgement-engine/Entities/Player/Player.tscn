@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://cac2qf0buevcy"]
 
-[ext_resource type="Texture2D" uid="uid://r7fbim2rqnl4" path="res://icon.svg" id="1_e5kic"]
 [ext_resource type="Script" uid="uid://dhb8bjagmiq67" path="res://Entities/Player/player.gd" id="1_ww0jn"]
+[ext_resource type="Texture2D" uid="uid://snvu0qvdc6tp" path="res://Assets/Sprites/Creatures/creatures_transparent.png" id="2_x44r4"]
 [ext_resource type="PackedScene" uid="uid://bteatyl84d520" path="res://Entities/Player/Weapon/player_weapon.tscn" id="3_vweq0"]
 [ext_resource type="Script" uid="uid://c8rfyr6gup3x3" path="res://Entities/Player/PlayerStateMachine/player_state_machine.gd" id="4_hj1c0"]
 [ext_resource type="Script" uid="uid://b1jw371l2c5tt" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_idle.gd" id="5_hj1c0"]
 [ext_resource type="Script" uid="uid://llbfhas6et5t" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_moving.gd" id="6_x44r4"]
 [ext_resource type="Script" uid="uid://ghiu6bajqh63" path="res://Entities/Player/PlayerStateMachine/PlayerStates/player_dashing.gd" id="7_761t5"]
-[ext_resource type="PackedScene" uid="uid://cuws01826bgf7" path="res://Entities/Enemies/BaseEnemy/BaseEnemy.tscn" id="8_x44r4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_761t5"]
+atlas = ExtResource("2_x44r4")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hj1c0"]
 radius = 16.0
@@ -21,7 +24,8 @@ motion_mode = 1
 script = ExtResource("1_ww0jn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063277729]
-texture = ExtResource("1_e5kic")
+scale = Vector2(9, 9)
+texture = SubResource("AtlasTexture_761t5")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1518797429]
 position = Vector2(-1, 47)
@@ -48,8 +52,5 @@ script = ExtResource("7_761t5")
 
 [node name="Moving" type="Node" parent="StateMachine" unique_id=2045006530]
 script = ExtResource("6_x44r4")
-
-[node name="base_enemy" parent="." unique_id=1742152106 instance=ExtResource("8_x44r4")]
-top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=339764742]

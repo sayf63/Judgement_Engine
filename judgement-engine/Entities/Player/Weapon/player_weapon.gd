@@ -10,6 +10,8 @@ extends CharacterBody2D
 @export var STEER_STRENGTH := 10.0
 @export var SWING_ARC_SIZE := 100.0
 
+@onready var sprite = $Sprite2D
+
 var cooldowns: Dictionary = {
 	"Swinging": SWING_CD
 }
@@ -24,6 +26,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for key in cooldowns:
 		cooldowns[key] = max(cooldowns[key] - delta, 0.0)
+	sprite.rotate(10*delta)
+	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
